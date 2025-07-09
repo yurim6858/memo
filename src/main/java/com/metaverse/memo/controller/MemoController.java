@@ -56,4 +56,15 @@ public class MemoController {
             throw new IllegalArgumentException("Memo not found");
         }
     }
+
+    @DeleteMapping("/memos/{id}")
+    public Long deleteMemo(@PathVariable Long id) {
+        if(memoList.containsKey(id)){
+            // 메모 삭제
+            memoList.remove(id);
+            return id;
+        } else {
+            throw new IllegalArgumentException("Memo not found");
+        }
+    }
 }
