@@ -41,4 +41,19 @@ public class MemoController {
 
         return responseList;
     }
+
+    @PutMapping("/memos/{id}")
+    public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto memoRequestDto) {
+        // 해당 id의 메모가 존재하는지 확인
+        if(memoList.containsKey(id)){
+            //해당 메모 가져오기
+            Memo memo = memoList.get(id);
+
+            //메모 수정
+            memo.update(memoRequestDto);
+            return memo.getId();
+        }else{
+            throw new IllegalArgumentException("Memo not found");
+        }
+    }
 }
