@@ -3,8 +3,10 @@ package com.metaverse.memo.dto;
 import com.metaverse.memo.domain.Memo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@AllArgsConstructor
 public class MemoResponseDto {
     private Long id;
     private String username;
