@@ -1,6 +1,5 @@
 package com.metaverse.memo.controller;
 
-
 import com.metaverse.memo.dto.MemoRequestDto;
 import com.metaverse.memo.dto.MemoResponseDto;
 import com.metaverse.memo.service.MemoService;
@@ -12,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class MemoController {
-    // 임시 데이터베이스(내장 메모리 배열)
     private final JdbcTemplate jdbcTemplate;
 
     public MemoController(JdbcTemplate jdbcTemplate) {
@@ -22,7 +20,6 @@ public class MemoController {
     @PostMapping("/memos")
     public MemoResponseDto createMemo(@RequestBody MemoRequestDto memoRequestDto) {
         MemoService memoService = new MemoService(jdbcTemplate);
-
         return memoService.createMemo(memoRequestDto);
     }
 
@@ -30,7 +27,6 @@ public class MemoController {
     @GetMapping("/memos")
     public List<MemoResponseDto> getMemos(){
         MemoService memoService = new MemoService(jdbcTemplate);
-
         return memoService.getMemos();
     }
 
