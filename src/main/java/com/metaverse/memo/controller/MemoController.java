@@ -3,6 +3,7 @@ package com.metaverse.memo.controller;
 import com.metaverse.memo.dto.MemoRequestDto;
 import com.metaverse.memo.dto.MemoResponseDto;
 import com.metaverse.memo.service.MemoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class MemoController {
     private final MemoService memoService;
 
+    @Autowired
     public MemoController(MemoService memoService) {
         this.memoService = memoService;
     }

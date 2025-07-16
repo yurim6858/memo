@@ -3,6 +3,7 @@ package com.metaverse.memo.repository;
 import com.metaverse.memo.domain.Memo;
 import com.metaverse.memo.dto.MemoRequestDto;
 import com.metaverse.memo.dto.MemoResponseDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -20,6 +21,7 @@ import java.util.List;
 public class MemoRepository {
     private final JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public MemoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
