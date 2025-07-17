@@ -6,6 +6,7 @@ import com.metaverse.memo.dto.MemoResponseDto;
 import com.metaverse.memo.repository.MemoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -52,5 +53,9 @@ public class MemoService {
         return memoRepository.findById(id).orElseThrow(()->
                 new IllegalArgumentException("해당 메모는 존재하지 않습니다.")
         );
+    }
+
+    public List<MemoResponseDto> getMemosByKeyword(String keyword){
+        return memoRepository.findByContentsContainingOrderByModifiedAtDesc(keyword).stream().map(MemoResponseDto::new).toList();
     }
 }
