@@ -27,9 +27,13 @@ public class MemoService {
     }
 
     public List<MemoResponseDto> getMemos(){
-        List<MemoResponseDto> responseList = memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        //기본 조회 메서드 호출
+        //List<MemoResponseDto> responseList = memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        //내림차순 조회 메서드 호출
+        List<MemoResponseDto> responseList = memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
         return responseList;
     }
+
 
     @Transactional
     public Long updateMemo(Long id, MemoRequestDto memoRequestDto) {
